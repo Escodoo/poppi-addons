@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="report_action_poppi_rotulo" model="ir.actions.report">
+            <field name="name">POPPI Rótulo</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">poppi_stock_custom.report_poppi_rotulo</field>
+            <field name="print_report_name">POPPI Rótulo</field>
+            <field name="report_file">poppi_stock_custom.report_poppi_rotulo</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking" />
+        </record>
+    </data>
+</odoo>
