@@ -13,6 +13,7 @@
     "data": [
         "report/report_poppi.xml",
         "report/report_poppi_minuta.xml",
+        "report/report_poppi_rotulo.xml",
     ],
     "demo": [],
 }
