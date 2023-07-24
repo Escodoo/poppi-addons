@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* poppi_delivery_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-24 21:21+0000\n"
+"PO-Revision-Date: 2023-07-24 18:26-0300\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.3.1\n"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields.selection,name:poppi_delivery_custom.selection__sale_order__reshipment_payment__company
+msgid "Company"
+msgstr "Empresa"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields.selection,name:poppi_delivery_custom.selection__sale_order__reshipment_payment__customer
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields,field_description:poppi_delivery_custom.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nome Exibido"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields,field_description:poppi_delivery_custom.field_sale_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields,field_description:poppi_delivery_custom.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields,field_description:poppi_delivery_custom.field_sale_order__reshipment_partner_id
+msgid "Reshipment Partner"
+msgstr "Parceiro do Redespacho"
+
+#. module: poppi_delivery_custom
+#: model:ir.model.fields,field_description:poppi_delivery_custom.field_sale_order__reshipment_payment
+msgid "Reshipment Payment"
+msgstr "Pagamento do Redespacho"
+
+#. module: poppi_delivery_custom
+#: model:ir.model,name:poppi_delivery_custom.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de Vendas"

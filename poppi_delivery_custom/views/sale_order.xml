@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="sale_order_form_view">
+        <field name="name">sale.order.form (in poppi_delivery_custom)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="l10n_br_delivery.l10n_br_delivery_sale_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='carrier_selection']" position="after">
+                <label
+                    for="reshipment_partner_id"
+                    attrs="{'invisible':[('carrier_id','=',False)]}"
+                />
+                <div>
+                    <field
+                        name="reshipment_partner_id"
+                        class="oe_inline"
+                        attrs="{'invisible':[('carrier_id','=',False)]}"
+                    />
+                </div>
+                <label
+                    for="reshipment_payment"
+                    attrs="{'invisible':[('carrier_id','=',False)],
+                           'required': [('reshipment_partner_id','!=', False)]}"
+                />
+                <div>
+                    <field
+                        name="reshipment_payment"
+                        attrs="{'invisible':[('carrier_id','=',False)],
+                           'required': [('reshipment_partner_id','!=', False)]}"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+<!--    <record model="ir.ui.view" id="sale_order_search_view">-->
+<!--        <field name="name">sale.order.search (in poppi_sale_custom)</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.search_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.view" id="sale_order_tree_view">-->
+<!--        <field name="name">sale.order.tree (in poppi_sale_custom)</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.tree_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>
