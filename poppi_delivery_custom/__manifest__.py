@@ -13,6 +13,7 @@
         "l10n_br_delivery",
     ],
     "data": [
+        'views/stock_picking.xml',
         "views/sale_order.xml",
     ],
     "demo": [],
