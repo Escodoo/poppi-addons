@@ -11,9 +11,9 @@
     "website": "https://github.com/Escodoo/poppi-addons",
     "depends": ["l10n_br_stock", "l10n_br_delivery_nfe"],
     "data": [
-        "report/report_poppi.xml",
-        "report/report_poppi_minuta.xml",
-        "report/report_poppi_rotulo.xml",
+        "views/report_poppi.xml",
+        "views/report_poppi_delivery_document.xml",
+        "views/report_poppi_delivery_label.xml",
     ],
     "demo": [],
 }
