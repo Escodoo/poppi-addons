@@ -10,10 +10,13 @@
     "author": "Escodoo",
     "website": "https://github.com/Escodoo/poppi-addons",
     "depends": [
-        "l10n_br_delivery",
+        "l10n_br_delivery_nfe",
     ],
     "data": [
         "views/sale_order.xml",
+        "views/report_poppi.xml",
+        "views/report_poppi_delivery_document.xml",
+        "views/report_poppi_delivery_label.xml",
     ],
     "demo": [],
 }
