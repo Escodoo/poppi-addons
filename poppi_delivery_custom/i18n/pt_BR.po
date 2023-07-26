@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 21:21+0000\n"
-"PO-Revision-Date: 2023-07-24 18:26-0300\n"
+"POT-Creation-Date: 2023-07-26 18:05+0000\n"
+"PO-Revision-Date: 2023-07-26 15:30-0300\n"
 "Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -18,6 +18,313 @@ msgstr ""
 "X-Generator: Poedit 3.3.1\n"
 
 #. module: poppi_delivery_custom
+#: model:ir.actions.report,print_report_name:poppi_delivery_custom.action_poppi_delivery_document_report
+msgid ""
+"'Delivery Document - %s - %s' % (object.partner_id.name or\n"
+"                '', object.name)"
+msgstr ""
+"'Documento de Despacho - %s - %s' % (object.partner_id.name or\n"
+"                '', object.name)"
+
+#. module: poppi_delivery_custom
+#: model:ir.actions.report,print_report_name:poppi_delivery_custom.action_poppi_delivery_label_report
+msgid ""
+"'Delivery Label - %s - %s' % (object.partner_id.name or\n"
+"                '', object.name)"
+msgstr ""
+"'Etiqueta de Despacho - %s - %s' % (object.partner_id.name or\n"
+"                '', object.name)"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"                                <span>\n"
+"                                    ________________________________________\n"
+"                                </span>\n"
+"                                <br/>\n"
+"                                <strong>Signature and Stamp of the Carrier</strong>"
+msgstr ""
+"<br/>\n"
+"                                <br/>\n"
+"                                <span>\n"
+"                                    ________________________________________\n"
+"                                </span>\n"
+"                                <br/>\n"
+"                                <strong>Assinatura e Carimbo da Transportadora</"
+"strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>\n"
+"                                        <b>Reshipment: </b>\n"
+"                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                        <b>Redespacho: </b>\n"
+"                                    </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>\n"
+"                                    <b>Carrier: </b>\n"
+"                                </strong>"
+msgstr ""
+"<strong>\n"
+"                                    <b>Transportadora: </b>\n"
+"                                </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>\n"
+"                                    <b>Recipient: </b>\n"
+"                                </strong>"
+msgstr ""
+"<strong>\n"
+"                                    <b>Destinatário: </b>\n"
+"                                </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>\n"
+"                                    <b>Sender: </b>\n"
+"                                </strong>"
+msgstr ""
+"<strong>\n"
+"                                    <b>Remetente: </b>\n"
+"                                </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Address: </strong>"
+msgstr "<strong>Endereço: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>Brand</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Marca</strong>\n"
+"                                <br/>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>CNPJ: </strong>"
+msgstr "<strong>CNPJ: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>City: </strong>"
+msgstr "<strong>Cidade: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Country: </strong>"
+msgstr "<strong>País: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Customer Order: </strong>"
+msgstr "<strong>Pedido do Cliente: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Date: </strong>"
+msgstr "<strong>Data:</strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Delivery Address: </strong>"
+msgstr "<strong>Endereço de Entrega:</strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Delivery City: </strong>"
+msgstr "<strong>Cidade de Entrega: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Delivery Country: </strong>"
+msgstr "<strong>País de Entrega: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Delivery State: </strong>"
+msgstr "<strong>Estado de Entrega: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Fiscal Document: </strong>"
+msgstr "<strong>Documento Fiscal: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Fiscal Document:</strong>"
+msgstr "<strong>Documento Fiscal:</strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Gross Weight: </strong>"
+msgstr "<strong>Peso Bruto: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>Gross Weight</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Peso Bruto</strong>\n"
+"                                <br/>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Incoterm: </strong>"
+msgstr "<strong>Incoterm: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Net Weight: </strong>"
+msgstr "<strong>Peso Líquido: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>Net Weight</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Peso Líquido</strong>\n"
+"                                <br/>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Notes: </strong>"
+msgstr "<strong>Observações: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>Number</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Número</strong>\n"
+"                                <br/>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Our Sale Order: </strong>"
+msgstr "<strong>Nosso Pedido de Venda: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Pairs:</strong> 17"
+msgstr "<strong>Pares:</strong> 17"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Partner: </strong>"
+msgstr "<strong>Parceiro: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Phone: </strong>"
+msgstr "<strong>Telefone: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>Quantity</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Quantidade</strong>\n"
+"                                <br/>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Reshipment Partner: </strong>"
+msgstr "<strong>Parceiro de Redespacho: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Reshipment Payment: </strong>"
+msgstr "<strong>Pagamento de Redespacho: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Sale Order: </strong>"
+msgstr "<strong>Pedido de Venda: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Shipping Partner: </strong>"
+msgstr "<strong>Parceiro de Entrega: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid ""
+"<strong>Species</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Espécies</strong>\n"
+"                                <br/>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>State Tax No.: </strong>"
+msgstr "<strong>Inscrição Estadual: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>State Tax Number: </strong>"
+msgstr "<strong>Inscrição Estadual: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>State: </strong>"
+msgstr "<strong>Estado: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>VAT/CNPJ: </strong>"
+msgstr "<strong>VAT/CNPJ: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "<strong>Value: </strong>"
+msgstr "<strong>Valor: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Volume Nº : </strong>"
+msgstr "<strong>Volume Nº : </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Volume Qty.:</strong>"
+msgstr "<strong>Volume Qtd:</strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Zip: </strong>"
+msgstr "<strong>Zip: </strong>"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid ""
+"CHECK THE MERCHANDISE WHEN RECEIVING BEFORE SIGNING THE EXPRESS ACKNOWLEDGMENT"
+msgstr "VERIFIQUE A MERCADORIA AO RECEBÊ-LA ANTES DE ASSINAR A CONFIRMAÇÃO EXPRESSA"
+
+#. module: poppi_delivery_custom
 #: model:ir.model.fields.selection,name:poppi_delivery_custom.selection__sale_order__reshipment_payment__company
 msgid "Company"
 msgstr "Empresa"
@@ -26,6 +333,26 @@ msgstr "Empresa"
 #: model:ir.model.fields.selection,name:poppi_delivery_custom.selection__sale_order__reshipment_payment__customer
 msgid "Customer"
 msgstr "Cliente"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "DELIVERY DOCUMENT"
+msgstr "DOCUMENTO DE DESPACHO"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+msgid "DESCRIPTION OF VOLUMES"
+msgstr "DESCRIÇÃO DOS VOLUMES"
+
+#. module: poppi_delivery_custom
+#: model:ir.actions.report,name:poppi_delivery_custom.action_poppi_delivery_document_report
+msgid "Delivery Document"
+msgstr "Documento de Despacho"
+
+#. module: poppi_delivery_custom
+#: model:ir.actions.report,name:poppi_delivery_custom.action_poppi_delivery_label_report
+msgid "Delivery Label"
+msgstr "Etiqueta de Despacho"
 
 #. module: poppi_delivery_custom
 #: model:ir.model.fields,field_description:poppi_delivery_custom.field_sale_order__display_name
@@ -56,3 +383,8 @@ msgstr "Pagamento do Redespacho"
 #: model:ir.model,name:poppi_delivery_custom.model_sale_order
 msgid "Sales Order"
 msgstr "Pedido de Vendas"
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "THE GOODS FOLLOW AT THE BUYER'S ACCOUNT AND RISK"
+msgstr "AS MERCADORIAS SEGUEM POR CONTA E RISCO DO COMPRADOR"
