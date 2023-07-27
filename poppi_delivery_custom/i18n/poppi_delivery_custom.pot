@@ -41,6 +41,7 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
 msgid ""
 "<strong>\n"
 "                                        <b>Reshipment: </b>\n"
@@ -49,6 +50,7 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
 msgid ""
 "<strong>\n"
 "                                    <b>Carrier: </b>\n"
@@ -82,11 +84,6 @@ msgstr ""
 msgid ""
 "<strong>Brand</strong>\n"
 "                                <br/>"
-msgstr ""
-
-#. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>CNPJ: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
@@ -132,12 +129,8 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
-msgid "<strong>Fiscal Document: </strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>Fiscal Document:</strong>"
+msgid "<strong>Fiscal Document: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
@@ -176,6 +169,11 @@ msgid "<strong>Notes: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Number: </strong>"
+msgstr ""
+
+#. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
 msgid ""
 "<strong>Number</strong>\n"
@@ -185,11 +183,6 @@ msgstr ""
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
 msgid "<strong>Our Sale Order: </strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>Pairs:</strong> 17"
 msgstr ""
 
 #. module: poppi_delivery_custom
@@ -204,15 +197,15 @@ msgid "<strong>Phone: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid "<strong>Quantity: </strong>"
+msgstr ""
+
+#. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
 msgid ""
 "<strong>Quantity</strong>\n"
 "                                <br/>"
-msgstr ""
-
-#. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>Reshipment Partner: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
@@ -226,11 +219,6 @@ msgid "<strong>Sale Order: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>Shipping Partner: </strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
 msgid ""
 "<strong>Species</strong>\n"
@@ -239,12 +227,8 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
-msgid "<strong>State Tax No.: </strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>State Tax Number: </strong>"
+msgid "<strong>State Tax No.: </strong>"
 msgstr ""
 
 #. module: poppi_delivery_custom
@@ -255,6 +239,7 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
 msgid "<strong>VAT/CNPJ: </strong>"
 msgstr ""
 
@@ -265,24 +250,7 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>Volume Nº : </strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "<strong>Volume Qty.:</strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
 msgid "<strong>Zip: </strong>"
-msgstr ""
-
-#. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid ""
-"CHECK THE MERCHANDISE WHEN RECEIVING BEFORE SIGNING THE EXPRESS "
-"ACKNOWLEDGMENT"
 msgstr ""
 
 #. module: poppi_delivery_custom
@@ -347,5 +315,8 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
-msgid "THE GOODS FOLLOW AT THE BUYER'S ACCOUNT AND RISK"
+msgid ""
+"THE GOODS FOLLOW AT THE BUYER'S ACCOUNT AND RISK <br/>\n"
+"                                        CHECK THE MERCHANDISE WHEN RECEIVING BEFORE SIGNING THE\n"
+"                                        EXPRESS ACKNOWLEDGMENT"
 msgstr ""
