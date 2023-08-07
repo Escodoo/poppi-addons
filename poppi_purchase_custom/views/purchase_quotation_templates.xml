@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+  <template
+        id="poppi_inherit_report_purchasequotation_document"
+        inherit_id="purchase.report_purchasequotation_document"
+    >
+    <xpath expr="//th[@name='th_description']" position="attributes">
+      <attribute name="t-esc">'Desc. Fornecedor'</attribute>
+    </xpath>
+    <xpath expr="//th[@name='th_description']" position="before">
+      <th>
+        <strong>Desc. Poppi</strong>
+      </th>
+    </xpath>
+    <xpath expr="//td[@id='product']" position="before">
+      <td id="product.orig">
+        [<span t-field="order_line.product_id.default_code" />] <span
+                    t-field="order_line.product_id.name"
+                />
+      </td>
+    </xpath>
+  </template>
+</odoo>
