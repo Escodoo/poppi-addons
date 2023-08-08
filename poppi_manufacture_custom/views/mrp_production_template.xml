@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <odoo>
   <template id="poppi_inherit_report_mrporder" inherit_id="mrp.report_mrporder">
-    <xpath expr="//th[contains(text(),'Product')]" position="after">
+    <xpath expr="//table[@class='table table-sm'][1]/thead/tr/th[1]" position="after">
       <th>Locality</th>
     </xpath>
     <xpath expr="//td//span[@t-field='raw_line.product_id']" position="after">
