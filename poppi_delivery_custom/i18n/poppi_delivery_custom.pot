@@ -40,8 +40,39 @@ msgid ""
 msgstr ""
 
 #. module: poppi_delivery_custom
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid ""
+"<strong>\n"
+"                                                <b>Reshipment: </b>\n"
+"                                            </strong>"
+msgstr ""
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid ""
+"<strong>\n"
+"                                            <b>Carrier: </b>\n"
+"                                        </strong>"
+msgstr ""
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid ""
+"<strong>\n"
+"                                            <b>Reshipment: </b>\n"
+"                                        </strong>"
+msgstr ""
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid ""
+"<strong>\n"
+"                                        <b>Carrier: </b>\n"
+"                                    </strong>"
+msgstr ""
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
 msgid ""
 "<strong>\n"
 "                                        <b>Reshipment: </b>\n"
@@ -50,7 +81,6 @@ msgstr ""
 
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_document
-#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
 msgid ""
 "<strong>\n"
 "                                    <b>Carrier: </b>\n"
@@ -316,7 +346,15 @@ msgstr ""
 #. module: poppi_delivery_custom
 #: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
 msgid ""
-"THE GOODS FOLLOW AT THE BUYER'S ACCOUNT AND RISK <br/>\n"
-"                                        CHECK THE MERCHANDISE WHEN RECEIVING BEFORE SIGNING THE\n"
-"                                        EXPRESS ACKNOWLEDGMENT"
+"THE GOODS FOLLOW AT THE BUYER'S ACCOUNT\n"
+"                                                AND RISK <br/> CHECK THE MERCHANDISE WHEN RECEIVING\n"
+"                                                BEFORE SIGNING THE EXPRESS ACKNOWLEDGMENT"
+msgstr ""
+
+#. module: poppi_delivery_custom
+#: model_terms:ir.ui.view,arch_db:poppi_delivery_custom.report_poppi_delivery_label
+msgid ""
+"THE GOODS FOLLOW AT THE BUYER'S ACCOUNT AND\n"
+"                                            RISK <br/> CHECK THE MERCHANDISE WHEN RECEIVING BEFORE\n"
+"                                            SIGNING THE EXPRESS ACKNOWLEDGMENT"
 msgstr ""
