@@ -1,6 +1,5 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* l10n_br_coa_poppi
 #
 msgid ""
 msgstr ""
@@ -12,17 +11,3 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: l10n_br_coa_poppi
-#: model:res.partner,nfe40_xMun:l10n_br_coa_poppi.partner_demo_poppi
-#: model:res.partner,nfe40_xMun:l10n_br_coa_poppi.poppi_partner
-#: model:res.users,nfe40_xMun:l10n_br_coa_poppi.user_demo_poppi
-msgid "Alumínio"
-msgstr ""
-
-#. module: l10n_br_coa_poppi
-#: model:res.partner,nfe40_xPais:l10n_br_coa_poppi.partner_demo_poppi
-#: model:res.partner,nfe40_xPais:l10n_br_coa_poppi.poppi_partner
-#: model:res.users,nfe40_xPais:l10n_br_coa_poppi.user_demo_poppi
-msgid "Brazil"
-msgstr ""
