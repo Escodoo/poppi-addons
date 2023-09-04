@@ -19,5 +19,18 @@
                 />
       </td>
     </xpath>
+    <xpath expr="//td[@name='td_taxes']/span" position="attributes">
+        <attribute name="style">display: none;</attribute>
+    </xpath>
+    <xpath expr="//td[@name='td_taxes']/span" position="after">
+        <span>
+            <t t-esc="line.icms_tax_id.name"/><t t-if="line.icms_tax_id.name">,</t>
+            <t t-esc="line.ipi_tax_id.name"/><t t-if="line.ipi_tax_id.name">,</t>
+            <t t-esc="line.pis_tax_id.name"/><t t-if="line.pis_tax_id.name">,</t> 
+            <t t-esc="line.cofins_tax_id.name"/><t t-if="line.cofins_tax_id.name">,</t> 
+            <t t-esc="line.irpj_tax_id.name"/><t t-if="line.irpj_tax_id.name">,</t> 
+            <t t-esc="line.inss_tax_id.name"/>
+        </span>
+    </xpath>
   </template>
 </odoo>

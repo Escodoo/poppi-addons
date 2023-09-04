@@ -191,10 +191,14 @@
                                     </div>
                                 </t>
                                 <!-- sale_order_information -->
-                                <div class="row mt-4">
-                                    <div class="col">
-                                        <strong>Sale Order: </strong>
-                                        <span t-field="o.sale_id.name" />
+                                <div class="row">
+                                    <div class="col-4">
+                                        <strong>Our Sale Order: </strong>
+                                        <span t-field="o.sale_id.name"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>Customer Order: </strong>
+                                        <span t-field="o.sale_id.client_order_ref"/>
                                     </div>
                                 </div>
                                 <!-- notes_information -->
