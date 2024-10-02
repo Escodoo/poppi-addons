@@ -1,0 +1,31 @@
+ICMS_DIFAL_UNIQUE_BASE = [
+    "AC",  # DOUBLE TO UNIQUE
+    "AL",  # DOUBLE TO UNIQUE
+    "AM",  # DOUBLE TO UNIQUE
+    "AP",  # DOUBLE TO UNIQUE
+    "BA",  # DOUBLE TO UNIQUE
+    "CE",  # DOUBLE TO UNIQUE
+    "DF",
+    "ES",
+    "GO",  # DOUBLE TO UNIQUE
+    "MA",
+    "MG",  # DOUBLE TO UNIQUE
+    "MS",
+    "MT",  # DOUBLE TO UNIQUE
+    "PA",  # DOUBLE TO UNIQUE
+    "PB",  # DOUBLE TO UNIQUE
+    "PE",
+    "PI",  # DOUBLE TO UNIQUE
+    "PR",  # DOUBLE TO UNIQUE
+    "RJ",
+    "RN",
+    "RO",  # DOUBLE TO UNIQUE
+    "RR",
+    "RS",  # DOUBLE TO UNIQUE
+    "SC",  # DOUBLE TO UNIQUE
+    "SE",  # DOUBLE TO UNIQUE
+    "SP",  # DOUBLE TO UNIQUE
+    "TO",  # DOUBLE TO UNIQUE
+]
+
+ICMS_DIFAL_DOUBLE_BASE = []
