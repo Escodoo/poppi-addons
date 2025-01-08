@@ -13,11 +13,69 @@
       </th>
     </xpath>
     <xpath expr="//td[@id='product']" position="before">
-      <td id="product.orig">
-        [<span t-field="line.product_id.default_code" />] <span
+      <td id="product.orig"> [<span t-field="line.product_id.default_code" />] <span
                     t-field="line.product_id.name"
                 />
       </td>
     </xpath>
+
+    <!-- Hides the column header for 'Date Req.' by adding the class 'd-none' -->
+    <xpath expr="//th[@name='th_date_req']" position="attributes">
+      <attribute name="t-attf-class">d-none</attribute>
+    </xpath>
+
+    <!-- Hides the table cell containing the 'date_planned' field by adding the class 'd-none' -->
+    <xpath
+            expr="//td[@class='text-center' and span[@t-field='line.date_planned']]"
+            position="attributes"
+        >
+      <attribute name="class">d-none</attribute>
+    </xpath>
+
+    <!-- Finds the span inside 'td_taxes' and hides it by adding the class 'd-none' -->
+    <xpath expr="//td[@name='td_taxes']/span" position="attributes">
+      <attribute name="class">d-none</attribute>
+    </xpath>
+
+    <!-- Inserts a new span inside 'td_taxes' that filters and displays only the names of
+    'icms_tax_id' and 'ipi_tax_id' -->
+    <xpath expr="//td[@name='td_taxes']" position="inside">
+      <span
+                t-esc="', '.join(map(lambda tax: tax.name, filter(lambda tax: tax.id in [line.icms_tax_id.id, line.ipi_tax_id.id], line.fiscal_tax_ids)))"
+            />
+    </xpath>
+
+
+    <!-- Hide the original 'Taxes' header by adding the class 'd-none' -->
+    <xpath expr="//td[@name='td_taxes_label']" position="attributes">
+      <attribute name="class">d-none</attribute>
+    </xpath>
+
+    <!-- Insert a new header for 'IPI' after the original 'Taxes' header -->
+    <xpath expr="//td[@name='td_taxes_label']" position="after">
+      <td name="td_ipi_label">
+        IPI
+      </td>
+    </xpath>
+
+    <!-- Update the t-esc attribute of the span displaying 'amount_tax' to show the sum of ipi_value -->
+    <xpath expr="//span[@t-field='o.amount_tax']" position="attributes">
+      <attribute name="t-esc">sum(line.ipi_value for line in o.order_line)</attribute>
+    </xpath>
+
+    <!-- Add the Tax ID (CNPJ/CPF) to the warehouse address of the recipient -->
+    <xpath expr="//div[hasclass('page')]" position="before">
+      <p t-if="o.picking_type_id.warehouse_id.partner_id">
+        <t t-esc="'CNPJ/CPF'" />: <span
+                    t-field="o.picking_type_id.warehouse_id.partner_id.vat"
+                />
+      </p>
+    </xpath>
+
+    <xpath expr="//p[@t-field='o.notes']" position="before">
+      <strong class="ml16">Payment Terms:</strong>
+      <span t-field="o.payment_term_id.name" />
+    </xpath>
+
   </template>
 </odoo>
