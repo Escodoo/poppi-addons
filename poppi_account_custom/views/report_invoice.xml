@@ -1,0 +1,64 @@
+<odoo>
+    <template
+        id="poppi_inherit_invoice_report"
+        inherit_id="account.report_invoice_document"
+    >
+        <!-- Hide the "Taxes" column in the header -->
+        <xpath expr="//th[@name='th_taxes']" position="attributes">
+            <attribute name="t-attf-class">d-none</attribute>
+        </xpath>
+        <!-- Hide the "Taxes" column in the table body -->
+        <xpath expr="//td[span[@id='line_tax_ids']]" position="attributes">
+            <attribute name="t-attf-class">d-none</attribute>
+        </xpath>
+        <!-- Remove the loop that displays taxes after the Subtotal -->
+        <xpath expr="//t[@t-as='amount_by_group']" position="replace">
+        </xpath>
+        <!-- Add the Fiscal Document Number before the Invoice -->
+        <xpath expr="//div[@class='page']" position="before">
+            <div t-if="o.document_number">
+                <h3>
+                    <span>Document Number: </span>
+                    <span t-field="o.document_number" />
+                </h3>
+            </div>
+        </xpath>
+
+        <!-- Update the text of the "Amount" element -->
+        <xpath
+            expr="//th[@name='th_subtotal']/span[text()='Amount']"
+            position="replace"
+        >
+            <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
+        </xpath>
+
+        <xpath expr="//table[@name='invoice_line_table']" position="after">
+            <table class="table table-sm o_main_table" name="installments_table">
+                <thead>
+                    <tr>
+                        <th>Installment</th>
+                        <th>Due Date</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="o.financial_move_line_ids" t-as="installment">
+                        <tr>
+                            <td>
+                                <span t-field="installment.name" />
+                            </td>
+                            <td>
+                                <span t-field="installment.date_maturity" />
+                            </td>
+                            <td>
+                                <span t-field="installment.credit" />
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+
+
+    </template>
+</odoo>
