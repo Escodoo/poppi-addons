@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-28 13:17+0000\n"
+"PO-Revision-Date: 2025-02-28 13:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,13 +17,18 @@ msgstr ""
 
 #. module: poppi_purchase_custom
 #: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
-msgid "<strong class=\"ml16\">Payment Terms:</strong>"
+#: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchasequotation_document
+msgid "<strong>Desc. Poppi</strong>"
 msgstr ""
 
 #. module: poppi_purchase_custom
 #: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchasequotation_document
-msgid "<strong>Desc. Poppi</strong>"
+msgid "<strong>Desc. Supplier</strong>"
+msgstr ""
+
+#. module: poppi_purchase_custom
+#: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
+msgid "<strong>Planned Date:</strong>"
 msgstr ""
 
 #. module: poppi_purchase_custom

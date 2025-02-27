@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-13 02:45+0000\n"
-"PO-Revision-Date: 2025-01-12 23:50-0300\n"
+"POT-Creation-Date: 2025-02-28 13:17+0000\n"
+"PO-Revision-Date: 2025-02-28 10:18-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -25,25 +25,15 @@ msgstr "<strong>Desc. Poppi</strong>"
 
 #. module: poppi_purchase_custom
 #: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
-msgid "<strong>Payment Terms:</strong>"
-msgstr "<strong>Condições de Pagamento:</strong>"
+msgid "<strong>Desc. Supplier</strong>"
+msgstr "<strong>Desc. Fornecedor</strong>"
+
+#. module: poppi_purchase_custom
+#: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
+msgid "<strong>Planned Date:</strong>"
+msgstr "<strong>Data Entrega:</strong>"
 
 #. module: poppi_purchase_custom
 #: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
 msgid "IPI"
 msgstr "IPI"
-
-#. module: poppi_purchase_custom
-#: model_terms:ir.ui.view,arch_db:poppi_purchase_custom.poppi_inherit_report_purchaseorder_document
-msgid "Desc. Supplier"
-msgstr "Desc. Fornecedor"
-
-#. module: purchase
-#: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
-msgid "<strong>Amount</strong>"
-msgstr "<strong>Valor Total</strong>"
-
-#. module: purchase
-#: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
-msgid "<strong>Order Date:</strong>"
-msgstr "<strong>Data Entrega:</strong>"
