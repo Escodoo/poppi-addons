@@ -354,32 +354,38 @@
                             <div class="col-2">
                                 <strong>Quantity</strong>
                                 <br />
-                                <span t-field="o.invoice_ids.nfe40_vol.nfe40_qVol" />
+                                <span t-field="o.invoice_ids[0].nfe40_vol.nfe40_qVol" />
                             </div>
                             <div class="col-2">
                                 <strong>Species</strong>
                                 <br />
-                                <span t-field="o.invoice_ids.nfe40_vol.nfe40_esp" />
+                                <span t-field="o.invoice_ids[0].nfe40_vol.nfe40_esp" />
                             </div>
                             <div class="col-2">
                                 <strong>Brand</strong>
                                 <br />
-                                <span t-field="o.invoice_ids.nfe40_vol.nfe40_marca" />
+                                <span
+                                    t-field="o.invoice_ids[0].nfe40_vol.nfe40_marca"
+                                />
                             </div>
                             <div class="col-2">
                                 <strong>Number</strong>
                                 <br />
-                                <span t-field="o.invoice_ids.nfe40_vol.nfe40_nVol" />
+                                <span t-field="o.invoice_ids[0].nfe40_vol.nfe40_nVol" />
                             </div>
                             <div class="col-2">
                                 <strong>Net Weight</strong>
                                 <br />
-                                <span t-field="o.invoice_ids.nfe40_vol.nfe40_pesoL" />
+                                <span
+                                    t-field="o.invoice_ids[0].nfe40_vol.nfe40_pesoL"
+                                />
                             </div>
                             <div class="col-2">
                                 <strong>Gross Weight</strong>
                                 <br />
-                                <span t-field="o.invoice_ids.nfe40_vol.nfe40_pesoB" />
+                                <span
+                                    t-field="o.invoice_ids[0].nfe40_vol.nfe40_pesoB"
+                                />
                             </div>
                         </div>
                     </div>
@@ -387,17 +393,15 @@
                         <div class="row">
                             <div class="col-4">
                                 <strong>Fiscal Document: </strong>
-                                <span t-field="o.invoice_ids.document_number" />
+                                <span t-field="o.invoice_ids[0].document_number" />
                             </div>
                             <div class="col-4">
                                 <strong>Date: </strong>
-                                <span t-field="o.invoice_ids.document_date" />
+                                <span t-field="o.invoice_ids[0].document_date" />
                             </div>
                             <div class="col-4">
                                 <strong>Value: </strong>
-                                <span
-                                    t-field="o.invoice_ids.invoice_line_ids.price_subtotal"
-                                />
+                                <span t-field="o.invoice_ids[0].amount_total" />
                             </div>
                         </div>
                         <div class="row">

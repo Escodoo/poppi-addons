@@ -8,10 +8,10 @@
                     t-set="partner"
                     t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"
                 />
-                <t t-if="int(o.invoice_ids.nfe40_vol.nfe40_qVol) > 0">
+                <t t-if="int(o.invoice_ids[0].nfe40_vol.nfe40_qVol) > 0">
                     <t
                         t-set="qVol"
-                        t-value="range(1, int(o.invoice_ids.nfe40_vol.nfe40_qVol) + 1)"
+                        t-value="range(1, int(o.invoice_ids[0].nfe40_vol.nfe40_qVol) + 1)"
                     />
                     <t t-foreach="qVol" t-as="num_nfe40_qVol">
                         <div
@@ -138,12 +138,14 @@
                                 <div class="row mt-4">
                                     <div class="col-8">
                                         <strong>Fiscal Document: </strong>
-                                        <span t-field="o.invoice_ids.document_number" />
+                                        <span
+                                            t-field="o.invoice_ids[0].document_number"
+                                        />
                                     </div>
                                     <div class="col-4">
                                         <strong>Quantity: </strong>
                                     <span t-esc="num_nfe40_qVol" /> / <span
-                                            t-field="o.invoice_ids.nfe40_vol.nfe40_qVol"
+                                            t-field="o.invoice_ids[0].nfe40_vol.nfe40_qVol"
                                         />
                                     </div>
                                 </div>
@@ -151,19 +153,19 @@
                                     <div class="col-4">
                                         <strong>Number: </strong>
                                         <span
-                                            t-field="o.invoice_ids.nfe40_vol.nfe40_nVol"
+                                            t-field="o.invoice_ids[0].nfe40_vol.nfe40_nVol"
                                         />
                                     </div>
                                     <div class="col-4">
                                         <strong>Gross Weight: </strong>
                                         <span
-                                            t-field="o.invoice_ids.nfe40_vol.nfe40_pesoB"
+                                            t-field="o.invoice_ids[0].nfe40_vol.nfe40_pesoB"
                                         />
                                     </div>
                                     <div class="col-4">
                                         <strong>Net Weight: </strong>
                                         <span
-                                            t-field="o.invoice_ids.nfe40_vol.nfe40_pesoL"
+                                            t-field="o.invoice_ids[0].nfe40_vol.nfe40_pesoL"
                                         />
                                     </div>
                                 </div>
@@ -336,12 +338,12 @@
                             <div class="row mt-4">
                                 <div class="col-8">
                                     <strong>Fiscal Document: </strong>
-                                    <span t-field="o.invoice_ids.document_number" />
+                                    <span t-field="o.invoice_ids[0].document_number" />
                                 </div>
                                 <div class="col-4">
                                     <strong>Quantity: </strong>
                                     <span
-                                        t-field="o.invoice_ids.nfe40_vol.nfe40_qVol"
+                                        t-field="o.invoice_ids[0].nfe40_vol.nfe40_qVol"
                                     />
                                 </div>
                             </div>
@@ -349,19 +351,19 @@
                                 <div class="col-4">
                                     <strong>Number: </strong>
                                     <span
-                                        t-field="o.invoice_ids.nfe40_vol.nfe40_nVol"
+                                        t-field="o.invoice_ids[0].nfe40_vol.nfe40_nVol"
                                     />
                                 </div>
                                 <div class="col-4">
                                     <strong>Gross Weight: </strong>
                                     <span
-                                        t-field="o.invoice_ids.nfe40_vol.nfe40_pesoB"
+                                        t-field="o.invoice_ids[0].nfe40_vol.nfe40_pesoB"
                                     />
                                 </div>
                                 <div class="col-4">
                                     <strong>Net Weight: </strong>
                                     <span
-                                        t-field="o.invoice_ids.nfe40_vol.nfe40_pesoL"
+                                        t-field="o.invoice_ids[0].nfe40_vol.nfe40_pesoL"
                                     />
                                 </div>
                             </div>
