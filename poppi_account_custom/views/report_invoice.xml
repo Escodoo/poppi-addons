@@ -1,4 +1,5 @@
 <odoo>
+    <!-- pylint:disable=xml-dangerous-qweb-replace-low-priority -->
     <template
         id="poppi_inherit_invoice_report"
         inherit_id="account.report_invoice_document"

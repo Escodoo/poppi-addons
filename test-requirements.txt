@@ -1,4 +1,10 @@
-vcrpy  # Needed by payment_pagseguro
-odoo-test-helper  # Needed by spec_driven_model
-signxml<3.1.0
-xmldiff
+# Dependências gerais para testes no Odoo
+odoo-test-helper  # Necessário para spec_driven_model
+pytest  # Framework de testes
+pytest-odoo  # Integração do pytest com Odoo
+vcrpy  # Necessário para payment_pagseguro
+
+# Dependências relacionadas à criptografia e XML
+pyopenssl==22.1.0  # Para evitar problemas de compatibilidade
+signxml<3.1.0  # Para assinatura digital de XML
+xmldiff  # Para comparar XMLs em testes

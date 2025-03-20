@@ -18,11 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#. module: account
-#: model_terms:ir.ui.view,arch_db:account.report_invoice_document
-msgid "Amount"
-msgstr "Valor Total"
-
 #. module: poppi_account_custom
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
 msgid "Amount"
