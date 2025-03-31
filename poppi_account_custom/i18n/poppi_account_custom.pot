@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-31 19:21+0000\n"
+"PO-Revision-Date: 2025-03-31 19:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +18,16 @@ msgstr ""
 #. module: poppi_account_custom
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
 msgid "<span>Document Number: </span>"
+msgstr ""
+
+#. module: poppi_account_custom
+#: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
+msgid "<span>Installment </span>"
+msgstr ""
+
+#. module: poppi_account_custom
+#: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
+msgid "<strong>Due Date:</strong>"
 msgstr ""
 
 #. module: poppi_account_custom
