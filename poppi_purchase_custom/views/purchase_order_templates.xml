@@ -1,11 +1,15 @@
 <?xml version="1.0" ?>
 <odoo>
+  <!-- oca-hooks:disable=xml-dangerous-qweb-replace-low-priority  -->
   <template
         id="poppi_inherit_report_purchaseorder_document"
         inherit_id="purchase.report_purchaseorder_document"
     >
-    <xpath expr="//th[@name='th_description']" position="attributes">
-      <attribute name="t-esc">'Desc. Supplier'</attribute>
+    <xpath expr="//th[@name='th_description']/strong" position="replace">
+      <t />
+    </xpath>
+    <xpath expr="//th[@name='th_description']" position="inside">
+      <strong>Desc. Supplier</strong>
     </xpath>
     <xpath expr="//th[@name='th_description']" position="before">
       <th>
@@ -18,12 +22,19 @@
                 />
       </td>
     </xpath>
-
+    <xpath expr="//div[@t-if='o.date_order']" position="attributes">
+      <attribute name="t-if">False</attribute>
+    </xpath>
+    <xpath expr="//div[@id='informations']" position="inside">
+      <div t-if="o.date_planned" class="col-3 bm-2">
+        <strong>Planned Date:</strong>
+        <p t-field="o.date_planned" class="m-0" />
+      </div>
+    </xpath>
     <!-- Hides the column header for 'Date Req.' by adding the class 'd-none' -->
     <xpath expr="//th[@name='th_date_req']" position="attributes">
       <attribute name="t-attf-class">d-none</attribute>
     </xpath>
-
     <!-- Hides the table cell containing the 'date_planned' field by adding the class 'd-none' -->
     <xpath
             expr="//td[@class='text-center' and span[@t-field='line.date_planned']]"
@@ -31,12 +42,10 @@
         >
       <attribute name="class">d-none</attribute>
     </xpath>
-
     <!-- Finds the span inside 'td_taxes' and hides it by adding the class 'd-none' -->
     <xpath expr="//td[@name='td_taxes']/span" position="attributes">
       <attribute name="class">d-none</attribute>
     </xpath>
-
     <!-- Inserts a new span inside 'td_taxes' that filters and displays only the names of
     'icms_tax_id' and 'ipi_tax_id' -->
     <xpath expr="//td[@name='td_taxes']" position="inside">
@@ -44,25 +53,20 @@
                 t-esc="', '.join(map(lambda tax: tax.name, filter(lambda tax: tax.id in [line.icms_tax_id.id, line.ipi_tax_id.id], line.fiscal_tax_ids)))"
             />
     </xpath>
-
-
     <!-- Hide the original 'Taxes' header by adding the class 'd-none' -->
     <xpath expr="//td[@name='td_taxes_label']" position="attributes">
       <attribute name="class">d-none</attribute>
     </xpath>
-
     <!-- Insert a new header for 'IPI' after the original 'Taxes' header -->
     <xpath expr="//td[@name='td_taxes_label']" position="after">
       <td name="td_ipi_label">
         IPI
       </td>
     </xpath>
-
     <!-- Update the t-esc attribute of the span displaying 'amount_tax' to show the sum of ipi_value -->
     <xpath expr="//span[@t-field='o.amount_tax']" position="attributes">
       <attribute name="t-esc">sum(line.ipi_value for line in o.order_line)</attribute>
     </xpath>
-
     <!-- Add the Tax ID (CNPJ/CPF) to the warehouse address of the recipient -->
     <xpath expr="//div[hasclass('page')]" position="before">
       <p t-if="o.picking_type_id.warehouse_id.partner_id">
@@ -71,11 +75,39 @@
                 />
       </p>
     </xpath>
-
-    <xpath expr="//p[@t-field='o.notes']" position="before">
-      <strong class="ml16">Payment Terms:</strong>
-      <span t-field="o.payment_term_id.name" />
+    <xpath expr="//p[@t-field='o.notes']" position="attributes">
+        <attribute name="class">d-none</attribute>
     </xpath>
-
+    <xpath expr="//div[@class='oe_structure']" position="attributes">
+        <attribute name="class">oe_structure d-none</attribute>
+    </xpath>
+    <xpath
+            expr="//div[@id='total' and contains(@class, 'justify-content-end')]"
+            position="attributes"
+        >
+        <attribute name="class">row</attribute>
+    </xpath>
+    <xpath expr="//div[@id='total']/div[hasclass('col-4')]" position="before">
+        <div class="col-8">
+            <p t-field="o.notes" />
+            <div class="oe_structure" />
+        </div>
+    </xpath>
+    <xpath expr="//table[contains(@class, 'o_main_table')]" position="attributes">
+            <attribute name="style">font-size: 12px;</attribute>
+    </xpath>
   </template>
+
+  <template id="purchase.report_purchaseorder">
+    <t t-call="web.html_container">
+      <t t-set="data_report_landscape" t-value="True" />
+      <t t-foreach="docs" t-as="o">
+        <t
+                    t-call="poppi_purchase_custom.poppi_inherit_report_purchaseorder_document"
+                    t-lang="o.partner_id.lang"
+                />
+      </t>
+    </t>
+  </template>
+
 </odoo>
