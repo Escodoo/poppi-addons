@@ -34,11 +34,31 @@ msgid "Amount"
 msgstr ""
 
 #. module: poppi_account_custom
+#: model:ir.model.fields,field_description:poppi_account_custom.field_ir_actions_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: poppi_account_custom
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
 msgid "Due Date"
 msgstr ""
 
 #. module: poppi_account_custom
+#: model:ir.model.fields,field_description:poppi_account_custom.field_ir_actions_report__id
+msgid "ID"
+msgstr ""
+
+#. module: poppi_account_custom
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
 msgid "Installment"
+msgstr ""
+
+#. module: poppi_account_custom
+#: model:ir.model.fields,field_description:poppi_account_custom.field_ir_actions_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: poppi_account_custom
+#: model:ir.model,name:poppi_account_custom.model_ir_actions_report
+msgid "Report Action"
 msgstr ""
