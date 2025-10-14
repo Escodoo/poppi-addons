@@ -26,6 +26,25 @@
         </xpath>
         <!-- Add the Fiscal Document Number before the Invoice -->
         <xpath expr="//div[@class='page']/h2" position="before">
+            <t t-if="current_installment_index >= 1">
+                <h6>
+                    <div style="text-align: right;">
+                        <address
+                            t-field="o.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'
+                        />
+                        <div t-if="o.partner_id.vat" class="mt16">
+                            <t
+                                t-if="o.company_id.country_id.vat_label"
+                                t-esc="o.company_id.country_id.vat_label"
+                                id="inv_tax_id_label"
+                            />
+                            <t t-else="">Tax
+                                ID</t>: <span t-field="o.partner_id.vat" />
+                        </div>
+                    </div>
+                </h6>
+            </t>
             <div t-if="o.document_number">
                 <h3>
                     <span>Document Number: </span>
@@ -87,7 +106,7 @@
                                     t-options="{'widget': 'date'}"
                                 />
                             </td>
-                           <td
+                            <td
                                 t-att-style="'font-weight: bold;' if installment == current_installment else ''"
                             >
                                 <span
