@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 - TODAY, Kaynnan Lemes <kaynnan.lemes@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="l10n_br_fiscal_cfop_form_view">
+        <field
+            name="name"
+        >l10n_br_fiscal.cfop.form (in poppi_fiscal_compensation)</field>
+        <field name="model">l10n_br_fiscal.cfop</field>
+        <field name="inherit_id" ref="l10n_br_fiscal.cfop_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='tax_settings']" position="before">
+                <group name="compensation" string="Compensation">
+                    <field name="use_compensation" />
+                    <field
+                        name="compensation_value_source"
+                        attrs="{
+                            'required': [('use_compensation', '=', True)],
+                            'invisible': [('use_compensation', '=', False)]
+                        }"
+                    />
+                    <field
+                        name="compensation_account_asset"
+                        string="Asset Account"
+                        attrs="{
+                            'required': [('use_compensation', '=', True)],
+                            'invisible': [('use_compensation', '=', False)]
+                        }"
+                        domain="[('user_type_id', '=', %(account.data_account_off_sheet)d)]"
+                    />
+                    <field
+                        name="compensation_account_liability"
+                        string="Liability Account"
+                        attrs="{
+                            'required': [('use_compensation', '=', True)],
+                            'invisible': [('use_compensation', '=', False)]
+                        }"
+                        domain="[('user_type_id', '=', %(account.data_account_off_sheet)d)]"
+                    />
+                    <field
+                        name="compensation_debit_account_type"
+                        string="Debit Account Type"
+                        attrs="{
+                            'required': [('use_compensation', '=', True)],
+                            'invisible': [('use_compensation', '=', False)]
+                        }"
+                    />
+                    <field
+                        name="compensation_journal_id"
+                        attrs="{
+                            'required': [('use_compensation', '=', True)],
+                            'invisible': [('use_compensation', '=', False)]
+                        }"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
