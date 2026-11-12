@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<odoo>
+  <template
+        id="poppi_inherit_report_mrporder"
+        inherit_id="mrp.report_mrp_production_components"
+    >
+    <xpath expr="//table/thead/tr/th[1]" position="after">
+      <th>Locality</th>
+    </xpath>
+    <xpath expr="//td[span[@t-field='raw_line.product_id']]" position="after">
+      <td>
+        <span
+                    t-out="', '.join(raw_line.move_line_ids.location_id.mapped('name'))"
+                />
+      </td>
+    </xpath>
+  </template>
+</odoo>
