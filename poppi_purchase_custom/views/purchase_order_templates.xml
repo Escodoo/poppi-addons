@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<odoo>
+  <!-- oca-hooks:disable=xml-dangerous-qweb-replace-low-priority  -->
+  <template
+        id="poppi_inherit_report_purchaseorder_document"
+        inherit_id="purchase.report_purchaseorder_document"
+    >
+    <xpath expr="//th[@name='th_description']/strong" position="replace">
+      <t />
+    </xpath>
+    <xpath expr="//th[@name='th_description']" position="inside">
+      <strong>Desc. Supplier</strong>
+    </xpath>
+    <xpath expr="//th[@name='th_description']" position="before">
+      <th>
+        <strong>Desc. Poppi</strong>
+      </th>
+    </xpath>
+    <xpath expr="//td[@id='product']" position="before">
+      <td id="product.orig"> [<span t-field="line.product_id.default_code" />] <span
+                    t-field="line.product_id.name"
+                />
+      </td>
+    </xpath>
+    <!-- Hide the order deadline and show the planned date instead -->
+    <xpath expr="//div[@t-elif='o.date_order']" position="attributes">
+      <attribute name="t-elif">False</attribute>
+    </xpath>
+    <xpath expr="//div[@t-if='o.date_planned']/strong" position="replace">
+      <strong>Planned Date:</strong>
+    </xpath>
+    <!-- Taxes column: show only the ICMS and IPI taxes names -->
+    <xpath expr="//th[@name='th_taxes']/strong" position="replace">
+      <strong>ICMS / IPI</strong>
+    </xpath>
+    <xpath expr="//t[@t-foreach='o.order_line']//span[@t-out]" position="attributes">
+      <attribute
+                name="t-out"
+            >', '.join(tax.name for tax in line.fiscal_tax_ids if tax.id in (line.icms_tax_id.id, line.ipi_tax_id.id))</attribute>
+    </xpath>
+    <!-- Totals: show only the IPI amount instead of the taxes breakdown -->
+    <xpath expr="//t[@t-call='purchase.document_tax_totals']" position="replace">
+      <tr class="o_subtotal">
+        <td>Untaxed Amount</td>
+        <td class="text-end">
+          <span t-field="o.amount_untaxed" />
+        </td>
+      </tr>
+      <tr name="tr_ipi">
+        <td name="td_ipi_label">IPI</td>
+        <td class="text-end">
+          <span
+                        t-out="sum(line.ipi_value for line in o.order_line)"
+                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                    />
+        </td>
+      </tr>
+      <tr class="o_total">
+        <td>
+          <strong>Total</strong>
+        </td>
+        <td class="text-end">
+          <strong t-field="o.amount_total" />
+        </td>
+      </tr>
+    </xpath>
+    <!-- Add the Tax ID (CNPJ/CPF) to the warehouse address of the recipient -->
+    <xpath expr="//div[hasclass('page')]" position="before">
+      <p t-if="o.picking_type_id.warehouse_id.partner_id">
+        <t t-esc="'CNPJ/CPF'" />: <span
+                    t-field="o.picking_type_id.warehouse_id.partner_id.vat"
+                />
+      </p>
+    </xpath>
+    <xpath expr="//p[@t-field='o.notes']" position="attributes">
+        <attribute name="class">d-none</attribute>
+    </xpath>
+    <xpath expr="//div[@class='oe_structure']" position="attributes">
+        <attribute name="class">oe_structure d-none</attribute>
+    </xpath>
+    <xpath
+            expr="//div[@id='total' and contains(@class, 'justify-content-end')]"
+            position="attributes"
+        >
+        <attribute name="class">row</attribute>
+    </xpath>
+    <xpath expr="//div[@id='total']/div[hasclass('col-4')]" position="before">
+        <div class="col-8">
+            <p t-field="o.notes" />
+            <div class="oe_structure" />
+        </div>
+    </xpath>
+    <xpath expr="//table[contains(@class, 'o_main_table')]" position="attributes">
+            <attribute name="style">font-size: 12px;</attribute>
+    </xpath>
+  </template>
+
+  <!-- Print the purchase order report in landscape -->
+  <template
+        id="poppi_report_purchaseorder"
+        inherit_id="purchase.report_purchaseorder"
+    >
+    <xpath expr="//t[@t-foreach='docs']" position="before">
+      <t t-set="data_report_landscape" t-value="True" />
+    </xpath>
+  </template>
+</odoo>
