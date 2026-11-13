@@ -14,8 +14,8 @@
         <field name="email">info@poppi.example.com</field>
         <field name="website">www.example.com</field>
         <field name="is_company" eval="True" />
-        <field name="cnpj_cpf">73.118.302/0001-32</field>
-        <field name="inscr_est">678.109.901.735</field>
+        <field name="vat">73.118.302/0001-32</field>
+        <field name="l10n_br_ie_code">678.109.901.735</field>
     </record>
 
     <record id="poppi_company" model="res.company">
