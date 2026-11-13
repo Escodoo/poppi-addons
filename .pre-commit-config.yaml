@@ -53,7 +53,7 @@ repos:
       - id: oca-gen-addon-readme
         args:
           - --addons-dir=.
-          - --branch=16.0
+          - --branch=18.0
           - --org-name=Escodoo
           - --repo-name=poppi-addons
           - --if-source-changed
@@ -62,8 +62,6 @@ repos:
     rev: v0.0.25
     hooks:
       - id: oca-checks-odoo-module
-        args:
-          - --fix
       - id: oca-checks-po
         args:
           - --disable=po-pretty-format
@@ -147,16 +145,7 @@ repos:
         args:
           - --settings=.
         exclude: /__init__\.py$
-  - repo: https://github.com/acsone/setuptools-odoo
-    rev: 3.3.2
-    hooks:
-      - id: setuptools-odoo-make-default
-      - id: setuptools-odoo-get-requirements
-        args:
-          - --output
-          - requirements.txt
-          - --header
-          - "# generated from manifests external_dependencies"
+  # Odoo 18 addons use whool through their pyproject.toml files.
   - repo: https://github.com/PyCQA/flake8
     rev: 5.0.0
     hooks:

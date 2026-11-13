@@ -8,6 +8,7 @@ class L10nBrCoaPoppi(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.l10n_br_coa_poppi = cls.env["account.chart.template"]
         cls.l10n_br_company = cls.env["res.company"].create(
             {
                 "name": "Empresa Teste do Plano de Contas",
@@ -15,50 +16,72 @@ class L10nBrCoaPoppi(TransactionCase):
                 "country_id": cls.env.ref("base.br").id,
             }
         )
-        cls.env["account.chart.template"].try_loading(
+        cls.l10n_br_coa_poppi.try_loading(
             "br_poppi", cls.l10n_br_company, install_demo=False
-        )
-
-    def _account(self, code):
-        return (
-            self.env["account.account"]
-            .with_company(self.l10n_br_company)
-            .search([("code", "=", code)])
         )
 
     def test_l10n_br_coa_poppi(self):
         """Test installing the chart of accounts template in a new company"""
-        company = self.l10n_br_company
-        self.assertEqual(company.chart_template, "br_poppi")
-        self.assertTrue(company.anglo_saxon_accounting)
-        self.assertEqual(company.cash_account_code_prefix, "111.01.")
-        self.assertEqual(company.bank_account_code_prefix, "111.02.")
-        partner_receivable = (
+        self.assertEqual(self.l10n_br_company.chart_template, "br_poppi")
+        self.assertTrue(self.l10n_br_company.anglo_saxon_accounting)
+        self.assertEqual(self.l10n_br_company.cash_account_code_prefix, "111.01.")
+        self.assertEqual(self.l10n_br_company.bank_account_code_prefix, "111.02.")
+        partner = (
             self.env["res.partner"]
-            .with_company(company)
+            .with_company(self.l10n_br_company)
             .create({"name": "Cliente Teste"})
-            .property_account_receivable_id
         )
-        self.assertEqual(partner_receivable.code, "112.01.01")
+        self.assertEqual(partner.property_account_receivable_id.code, "112.01.01")
+        self.assertEqual(partner.property_account_payable_id.code, "211.01.01")
 
     def test_tax_group_accounts(self):
-        """PIS sale tax uses the Poppi accounts instead of the generic ones"""
-        tax = self.env["account.tax"].search(
-            [
-                ("company_id", "=", self.l10n_br_company.id),
-                ("type_tax_use", "=", "sale"),
-                ("deductible", "=", False),
-                ("withholdable", "=", False),
-                ("tax_group_id.name", "=", "PIS"),
-            ],
-            limit=1,
-        )
-        self.assertTrue(tax)
-        inv_line = tax.invoice_repartition_line_ids.filtered(
-            lambda line: line.repartition_type == "tax"
-        )
-        ref_line = tax.refund_repartition_line_ids.filtered(
-            lambda line: line.repartition_type == "tax"
-        )
-        self.assertEqual(inv_line.account_id, self._account("211.05.23"))
-        self.assertEqual(ref_line.account_id, self._account("112.07.06"))
+        mappings = {
+            "pis": ("211.05.23", "112.07.06"),
+            "cofins": ("112.07.08", "112.07.08"),
+            "issqn": ("211.05.06", "211.05.06"),
+            "ipi": ("211.05.07", "112.07.02"),
+        }
+        for group, (code, refund_code) in mappings.items():
+            taxes = (
+                self.env["account.tax"]
+                .with_company(self.l10n_br_company)
+                .search(
+                    [
+                        ("company_id", "=", self.l10n_br_company.id),
+                        (
+                            "tax_group_id",
+                            "=",
+                            self.l10n_br_coa_poppi.with_company(self.l10n_br_company)
+                            .ref(f"tax_group_{group}")
+                            .id,
+                        ),
+                    ]
+                )
+            )
+            self.assertTrue(taxes)
+            for tax in taxes:
+                expected = (code, refund_code)
+                if tax.deductible or (
+                    tax.withholdable and tax.type_tax_use != "purchase"
+                ):
+                    expected = (False, False)
+                elif tax.type_tax_use == "purchase" and not tax.withholdable:
+                    expected = (refund_code, code)
+                for lines, account_code in zip(
+                    (tax.invoice_repartition_line_ids, tax.refund_repartition_line_ids),
+                    expected,
+                    strict=True,
+                ):
+                    tax_lines = lines.filtered(
+                        lambda line: line.repartition_type == "tax"
+                    )
+                    self.assertTrue(tax_lines)
+                    for line in tax_lines:
+                        self.assertEqual(
+                            line.account_id.code,
+                            account_code,
+                            f"{tax.name}: deductible={tax.deductible}, "
+                            f"withholdable={tax.withholdable}, "
+                            f"document={line.document_type}, "
+                            f"currency={tax.company_id.currency_id.name}",
+                        )

@@ -10,7 +10,7 @@
     "development_status": "Production/Stable",
     "website": "https://github.com/Escodoo/poppi-addons",
     "version": "18.0.1.0.0",
-    "depends": ["l10n_br_coa", "l10n_br_fiscal"],
+    "depends": ["l10n_br_coa", "l10n_br_base"],
     "data": [],
     "demo": [
         "demo/res_company.xml",

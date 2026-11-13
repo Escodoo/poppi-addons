@@ -69,17 +69,11 @@ class AccountChartTemplate(models.AbstractModel):
     def _set_poppi_tax_group_accounts(self, company):
         """Set the Poppi accounts on the repartition lines of the PIS, COFINS,
         ISSQN and IPI taxes, replacing the generic accounts set by l10n_br_coa."""
-        env = self.with_context(allowed_company_ids=[company.id]).env
+        chart = self.with_company(company)
+        env = chart.env
         Account = env["account.account"]
-        IrModelData = env["ir.model.data"].sudo()
         for group_name, (code, refund_code) in POPPI_TAX_GROUP_ACCOUNTS.items():
-            group_data = IrModelData.search(
-                [
-                    ("model", "=", "account.tax.group"),
-                    ("name", "=", f"{company.id}_{group_name}"),
-                ],
-                limit=1,
-            )
+            group = chart.ref(group_name)
             account = Account.search(
                 [("code", "=", code), ("company_ids", "in", company.ids)], limit=1
             )
@@ -87,20 +81,25 @@ class AccountChartTemplate(models.AbstractModel):
                 [("code", "=", refund_code), ("company_ids", "in", company.ids)],
                 limit=1,
             )
-            if not (group_data and account and refund_account):
+            if not (group and account and refund_account):
                 continue
             taxes = env["account.tax"].search(
                 [
                     ("company_id", "=", company.id),
-                    ("tax_group_id", "=", group_data.res_id),
-                    ("deductible", "=", False),
-                    "|",
-                    ("type_tax_use", "=", "sale"),
-                    ("withholdable", "=", False),
+                    ("tax_group_id", "=", group.id),
                 ]
             )
             for tax in taxes:
-                if tax.type_tax_use == "purchase":
+                if tax.deductible or (
+                    tax.withholdable and tax.type_tax_use != "purchase"
+                ):
+                    tax._update_repartition_lines(False, False)
+                    # The parent helper only replaces a refund account when
+                    # a truthy account ID is passed; clear it explicitly here.
+                    tax.refund_repartition_line_ids.filtered(
+                        lambda line: line.repartition_type == "tax"
+                    ).account_id = False
+                elif tax.type_tax_use == "purchase" and not tax.withholdable:
                     tax._update_repartition_lines(refund_account.id, account.id)
                 else:
                     tax._update_repartition_lines(account.id, refund_account.id)
