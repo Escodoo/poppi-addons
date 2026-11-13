@@ -1,0 +1,155 @@
+id,code_prefix_start,name,parent_id
+account_group_1,1,ATIVO,
+account_group_11,11,ATIVO CIRCULANTE,account_group_1
+account_group_111,111,ATIVO DISPONIVEL,account_group_11
+account_group_111_01,111.01,CAIXA,account_group_111
+account_group_111_02,111.02,BANCOS CONTA MOVIMENTO,account_group_111
+account_group_111_03,111.03,APLICACOES FINANCEIRAS,account_group_111
+account_group_111_04,111.04,TRANSFERENCIA DE LIQUIDEZ,account_group_111
+account_group_112,112,REALIZAVEL A CURTO PRAZO,account_group_11
+account_group_112_01,112.01,DUPLICATAS A RECEBER - MATRIZ,account_group_112
+account_group_112_02,112.02,VALORES A RECEBER - EXPORTACAO,account_group_112
+account_group_112_03,112.03,DUPLICATAS A RECEBER - NH,account_group_112
+account_group_112_04,112.04,(-) DUPLICATAS DESCONTADAS,account_group_112
+account_group_112_05,112.05,(-) PROVISAO P/DEV. DUVIDOSOS,account_group_112
+account_group_112_06,112.06,ENDOSSO DE TERCEIROS,account_group_112
+account_group_112_07,112.07,IMPOSTOS A RECUPERAR - MATRIZ,account_group_112
+account_group_112_08,112.08,IMPOSTOS A RECUPERAR - NH,account_group_112
+account_group_112_09,112.09,IMPOSTOS A COMPENSAR,account_group_112
+account_group_112_10,112.10,IMPOSTO SOBRE DEMONSTRACAO,account_group_112
+account_group_112_11,112.11,IMPOSTO SOBRE DEMONSTRACAO NH,account_group_112
+account_group_112_12,112.12,IMPOSTO SOBRE TRANSFERENCIA,account_group_112
+account_group_112_13,112.13,RESERVADO,account_group_112
+account_group_112_14,112.14,RESERVADO,account_group_112
+account_group_112_15,112.15,ADIANTAMENTOS A FUNCIONARIOS,account_group_112
+account_group_112_16,112.16,ADIANTAMENTO A IMPORTACAO,account_group_112
+account_group_112_17,112.17,ADIANTAMENTOS A FORNECEDORES,account_group_112
+account_group_112_18,112.18,ADIANTAMENTO DE VIAGENS,account_group_112
+account_group_112_20,112.20,teste,account_group_112
+account_group_113,113,ESTOQUES,account_group_11
+account_group_113_01,113.01,ESTOQUES - MATRIZ,account_group_113
+account_group_113_02,113.02,ESTOQUES - NH,account_group_113
+account_group_113_03,113.03,ESTOQUES - SHOPPING,account_group_113
+account_group_114,114,DESPESAS DO EXERCICIO SEGUINTE,account_group_11
+account_group_114_01,114.01,DESPESAS DO EXERCICIO SEGUINTE,account_group_114
+account_group_115,115,OPERACOES TRANSITORIAS,account_group_11
+account_group_115_01,115.01,PENDENTE TRANSITORIO,account_group_115
+account_group_12,12,REALIZAVEL A LONGO PRAZO,account_group_1
+account_group_121,121,REALIZAVEL A LONGO PRAZO,account_group_12
+account_group_121_01,121.01,DEPOSITO COMPULSORIO,account_group_121
+account_group_121_02,121.02,OUTROS CREDITOS,account_group_121
+account_group_121_03,121.03,ANTECIPACAO P/DISTRIB. DE LUCROS,account_group_121
+account_group_121_04,121.04,OPERACOES A PRAZO FIXO,account_group_121
+account_group_121_05,121.05,OUTRAS CONTAS,account_group_121
+account_group_13,13,ATIVO PERMANENTE,account_group_1
+account_group_131,131,INVESTIMENTOS,account_group_13
+account_group_131_01,131.01,INVESTIMENTOS INCENTIVADOS,account_group_131
+account_group_131_02,131.02,INVESTIMENTOS INCENT. - IPC-90,account_group_131
+account_group_131_03,131.03,PARTICIPACOES OUTRAS EMPRESAS,account_group_131
+account_group_131_04,131.04,PARTICIP OUTRAS EMPRESAS IPC90,account_group_131
+account_group_132,132,IMOBILIZADO OPERACIONAL-MATRIZ,account_group_13
+account_group_132_01,132.01,IMOBILIZADO OPERACIONAL,account_group_132
+account_group_132_02,132.02,(-) DEPRECIACOES ACUMULADAS,account_group_132
+account_group_132_03,132.03,IMOBILIZADO OPERACIONAL IPC-90,account_group_132
+account_group_132_04,132.04,(-) DEPREC. ACUMULADAS IPC-90,account_group_132
+account_group_133,133,IMOBILIZADO OPERACIONAL - NH,account_group_13
+account_group_133_01,133.01,IMOBILIZADO OPERACIONAL,account_group_133
+account_group_133_02,133.02,(-) DEPRECIACOES ACUMULADAS,account_group_133
+account_group_133_03,133.03,IMOBILIZADO OPERACIONAL IPC-90,account_group_133
+account_group_133_04,133.04,(-) DEPREC. ACUMULADAS IPC-90,account_group_133
+account_group_134,134,INTANGIVEL,account_group_13
+account_group_134_01,134.01,INTANGIVEL,account_group_134
+account_group_14,14,COMPENSACAO ATIVA,account_group_1
+account_group_141,141,COMPENSADO,account_group_14
+account_group_141_01,141.01,IMOBILIZADO EM ANDAMENTO (RESIDUAL),account_group_141
+account_group_141_07,141.07,SIMPLES REMESSA,account_group_141
+account_group_141_08,141.08,MAQUINAS EM DEMONSTRAÇÃO - NH,account_group_141
+account_group_2,2,PASSIVO,
+account_group_21,21,PASSIVO CIRCULANTE,account_group_2
+account_group_211,211,EXIGIVEL A CURTO PRAZO,account_group_21
+account_group_211_01,211.01,FORNECEDORES,account_group_211
+account_group_211_02,211.02,FORNECEDORES - NH,account_group_211
+account_group_211_03,211.03,FORNECEDORES (FINANCEIROS),account_group_211
+account_group_211_04,211.04,FORNECEDORES - TRANSPORTADORAS,account_group_211
+account_group_211_05,211.05,OBRIGACOES A PAGAR,account_group_211
+account_group_211_06,211.06,OBRIGACOES A PAGAR NH,account_group_211
+account_group_211_08,211.08,IMPOSTOS SOBRE DEMONSTRACAO,account_group_211
+account_group_211_09,211.09,ADIANTAMENTO DE CAMBIO,account_group_211
+account_group_211_10,211.10,IMPOSTOS SOBRE DEMONSTRACAO NH,account_group_211
+account_group_211_11,211.11,EMPRESTIMOS CONTRAIDOS NO PAIS,account_group_211
+account_group_211_12,211.12,ADIANT DE CLIENTES(M.INTERNO),account_group_211
+account_group_211_13,211.13,ADIANT DE CLIENTES(M.EXTERNO),account_group_211
+account_group_211_14,211.14,PREMIO DE SEGURO,account_group_211
+account_group_211_15,211.15,BANCOS (CHEQUES NAO COMPENSADOS),account_group_211
+account_group_22,22,EXIGIVEL A LONGO PRAZO,account_group_2
+account_group_221,221,EXIGIVEL A LONGO PRAZO,account_group_22
+account_group_221_01,221.01,PARCELAMENTOS,account_group_221
+account_group_221_02,221.02,CONTAS CORRENTES INTERLIGADAS,account_group_221
+account_group_23,23,PATRIMONIO LIQUIDO,account_group_2
+account_group_231,231,PATRIMONIO LIQUIDO,account_group_23
+account_group_231_01,231.01,CAPITAL SOCIAL,account_group_231
+account_group_231_02,231.02,RESERVAS DE CAPITAL,account_group_231
+account_group_231_03,231.03,LUCROS E PREJUIZOS ACUMULADOS,account_group_231
+account_group_231_04,231.04,CORRECAO MONETARIA - IPC.90,account_group_231
+account_group_24,24,COMPENSACAO PASSIVA,account_group_2
+account_group_241,241,COMPENSADO,account_group_24
+account_group_241_01,241.01,TITULOS EM COBRANCA,account_group_241
+account_group_241_02,241.02,PRODUTOS EM DEMONSTRACAO EXTERIOR,account_group_241
+account_group_241_03,241.03,MERCADORIAS EM DEMONSTRACAO,account_group_241
+account_group_241_04,241.04,MERCADORIAS EM DOMONSTRACAO NH,account_group_241
+account_group_241_06,241.06,IMPORTACAO TEMPORARIA MERCADORIAS,account_group_241
+account_group_241_07,241.07,TRANSFERENCIA DE PRODUTOS,account_group_241
+account_group_241_08,241.08,MAQUINAS EM DEMONSTRACAO,account_group_241
+account_group_241_09,241.09,MAQUINAS EM DEMONSTRACAO - NH,account_group_241
+account_group_241_10,241.10,SIMPLES REMESSA,account_group_241
+account_group_3,3,DESPESAS,
+account_group_31,31,DESPESAS,account_group_3
+account_group_311,311,CUSTOS,account_group_31
+account_group_311_01,311.01,CUSTOS INDUSTRIAIS,account_group_311
+account_group_312,312,DESPESAS OPERACIONAIS,account_group_31
+account_group_312_01,312.01,IMPOSTOS INCIDENTES S/VENDAS-MATRIZ,account_group_312
+account_group_312_02,312.02,IMPOSTOS INCIDENTES S/VENDAS NH,account_group_312
+account_group_312_03,312.03,IMPOSTOS INCID. S/VENDAS (SHOPPING),account_group_312
+account_group_312_04,312.04,DESPESAS COM VENDAS,account_group_312
+account_group_312_05,312.05,DESPESAS LOJA SHOPPING,account_group_312
+account_group_312_06,312.06,DESPESAS ADMINISTRATIVAS,account_group_312
+account_group_312_08,312.08,DESPESAS FINANCEIRAS,account_group_312
+account_group_312_09,312.09,DESPESAS TRIBUTARIAS - PARCELAMENTO,account_group_312
+account_group_312_10,312.10,DESPESAS TRIBUTARIAS - MATRIZ,account_group_312
+account_group_312_11,312.11,DESPESAS TRIBUTARIAS - NH,account_group_312
+account_group_312_12,312.12,DESPESA C/ PROGRAMA DE ALIMENTACAO,account_group_312
+account_group_312_13,312.13,DESPESAS ADMINISTRATIVAS N.H.,account_group_312
+account_group_313,313,CUSTOS PRODS/MERCDS VENDIDAS,account_group_31
+account_group_313_01,313.01,CUSTOS PRODS/MERCDS VENDIDAS,account_group_313
+account_group_313_02,313.02,CUSTOS PRODS/MERCDS VENDIDAS - NH,account_group_313
+account_group_315,315,GANHOS E PERDAS DE CAPITAL,account_group_31
+account_group_315_01,315.01,GANHOS E PERDAS DE CAPITAL,account_group_315
+account_group_317,317,RESULTADO DA CORRECAO MONETARIA,account_group_31
+account_group_317_01,317.01,RESULTADO DA CORRECAO MONETARIA,account_group_317
+account_group_33,33,PROV. P/ IMP.RENDA E CONT SOCIAL,account_group_3
+account_group_331,331,PROV. P/ IMP.RENDA E CONT. SOCIAL,account_group_33
+account_group_331_01,331.01,PROV P/ CONTRIBUICAO SOCIAL,account_group_331
+account_group_331_02,331.02,PROV. P/ IMPOSTO DE RENDA,account_group_331
+account_group_4,4,RECEITAS,
+account_group_41,41,RECEITAS,account_group_4
+account_group_411,411,RECEITA OPERACIONAL DE VENDAS,account_group_41
+account_group_411_01,411.01,RECEITA OPER. VENDAS - MATRIZ,account_group_411
+account_group_411_02,411.02,RECEITA OPER. VENDAS - NH,account_group_411
+account_group_411_03,411.03,RECEITA DE VENDAS - SHOPPING,account_group_411
+account_group_412,412,OUTRAS RECEITAS OPERACIONAIS,account_group_41
+account_group_412_01,412.01,OUTRAS RECEITAS OPERAC. MATRIZ,account_group_412
+account_group_412_02,412.02,OUTRAS RECEITAS OPERAC. NH,account_group_412
+account_group_413,413,RESERVADO,account_group_41
+account_group_414,414,RECEITAS NAO OPERACIONAIS,account_group_41
+account_group_414_01,414.01,RECEITA NAO OPERACIONAL,account_group_414
+account_group_415,415,RESULTADO CORRECAO MONETARIA,account_group_41
+account_group_415_01,415.01,RESULTADO CORRECAO MONETARIA,account_group_415
+account_group_5,5,CONTAS DE RESULTADO,
+account_group_51,51,CONTAS DE RESULTADO,account_group_5
+account_group_511,511,CONTAS DE RESULTADO,account_group_51
+account_group_511_01,511.01,RESULTADO MENSAL,account_group_511
+account_group_511_02,511.02,RESULTADO ANUAL,account_group_511
+account_group_6,6,ENCERRAMENTO DO EXERCICIO,
+account_group_61,61,ENCERRAMENTO DO EXERCICIO,account_group_6
+account_group_611,611,ENCERRAMENTO DO EXERCICIO,account_group_61
+account_group_611_01,611.01,ENCERRAMENTO DO EXERCICIO,account_group_611
