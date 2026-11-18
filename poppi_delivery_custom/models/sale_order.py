@@ -11,13 +11,9 @@ class SaleOrder(models.Model):
     reshipment_partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Reshipment Partner",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
     reshipment_payment = fields.Selection(
         [("customer", "Customer"), ("company", "Company")],
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
 
     @api.onchange("carrier_id")

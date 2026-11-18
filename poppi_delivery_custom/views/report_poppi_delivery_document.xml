@@ -120,7 +120,7 @@
                         <div class="row">
                             <div class="col-4">
                                 <strong>VAT/CNPJ: </strong>
-                                <span t-field="o.company_id.partner_id.cnpj_cpf" />
+                                <span t-field="o.company_id.partner_id.vat" />
                             </div>
                             <div class="col-4">
                                 <strong>State Tax No.: </strong>
@@ -182,7 +182,7 @@
                         <div class="row">
                             <div class="col-4">
                                 <strong>VAT/CNPJ: </strong>
-                                <span t-field="o.sale_id.partner_id.cnpj_cpf" />
+                                <span t-field="o.sale_id.partner_id.vat" />
                             </div>
                             <div class="col-4">
                                 <strong>State Tax No.: </strong>
@@ -249,9 +249,7 @@
                             <div class="row">
                                 <div class="col">
                                     <strong>VAT/CNPJ: </strong>
-                                    <span
-                                        t-field="o.sale_id.partner_shipping_id.cnpj_cpf"
-                                    />
+                                    <span t-field="o.sale_id.partner_shipping_id.vat" />
                                 </div>
                             </div>
                         </t>
@@ -323,7 +321,7 @@
                             <!--                           <div class="row">-->
                             <!--                                <div class="col-6">-->
                             <!--                                    <strong>VAT/CNPJ: </strong>-->
-                            <!--                                    <span t-field="o.sale_id.reshipment_partner_id.cnpj_cpf" />-->
+                            <!--                                    <span t-field="o.sale_id.reshipment_partner_id.vat" />-->
                             <!--                                </div>-->
                             <!--                                <div class="col-6">-->
                             <!--                                    <strong>State Tax No.: </strong>-->

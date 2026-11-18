@@ -78,9 +78,7 @@
                                 <div class="row mt-1">
                                     <div class="col-8">
                                         <strong>VAT/CNPJ: </strong>
-                                        <span
-                                            t-field="o.company_id.partner_id.cnpj_cpf"
-                                        />
+                                        <span t-field="o.company_id.partner_id.vat" />
                                     </div>
                                     <div class="col-4">
                                         <strong>State Tax No.: </strong>
