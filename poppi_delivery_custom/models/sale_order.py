@@ -16,7 +16,6 @@ class SaleOrder(models.Model):
     )
     reshipment_payment = fields.Selection(
         [("customer", "Customer"), ("company", "Company")],
-        string="Reshipment Payment",
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
