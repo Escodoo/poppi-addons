@@ -1,0 +1,7 @@
+# l10n_br_nfe imports the SOAP clients, provided by this optional nfelib extra.
+nfelib[soap]>=3.2.0
+# Preserve compatibility with cryptography 3.4.8 / pyOpenSSL in the OCA CI image.
+requests-pkcs12<1.23
+# Test imports of the transitive Brazilian localization dependencies.
+odoo-test-helper
+xmldiff
