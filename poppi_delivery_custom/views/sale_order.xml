@@ -36,22 +36,4 @@
         </field>
     </record>
 
-<!--    <record model="ir.ui.view" id="sale_order_search_view">-->
-<!--        <field name="name">sale.order.search (in poppi_sale_custom)</field>-->
-<!--        <field name="model">sale.order</field>-->
-<!--        <field name="inherit_id" ref="TODO othermodule.search_view"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--            &lt;!&ndash; TODO &ndash;&gt;-->
-<!--        </field>-->
-<!--    </record>-->
-
-<!--    <record model="ir.ui.view" id="sale_order_tree_view">-->
-<!--        <field name="name">sale.order.tree (in poppi_sale_custom)</field>-->
-<!--        <field name="model">sale.order</field>-->
-<!--        <field name="inherit_id" ref="TODO othermodule.tree_view"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--            &lt;!&ndash; TODO &ndash;&gt;-->
-<!--        </field>-->
-<!--    </record>-->
-
 </odoo>
