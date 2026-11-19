@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <template id="report_poppi_delivery_label">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <t t-set="o" t-value="o.with_context(lang=o._get_report_lang())" />
+                <t t-set="invoice" t-value="o.invoice_ids[:1]" /><t
+                    t-foreach="invoice.fiscal_document_id.nfe40_vol or [False]"
+                    t-as="volume"
+                >
+                    <t
+                        t-foreach="range(1, max(int(float(volume.nfe40_qVol or 0)), 1) + 1) if volume else range(1, 2)"
+                        t-as="num_nfe40_qVol"
+                    >
+                        <div class="page" style="page-break-after: always;">
+                            <div
+                                id="company_header"
+                                class="border border-dark p-2 py-3"
+                            >
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <h5
+                                                class="text-uppercase mt-2"
+                                                t-field="o.company_id.partner_id.legal_name"
+                                            />
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="company_information"
+                                class="border border-dark border-top-0 p-2 py-3"
+                            >
+                                <div class="row mt-1">
+                                    <div class="col-8">
+                                        <strong>Address: </strong>
+                                        <span
+                                            t-field="o.company_id.partner_id.street"
+                                        />
+                                        <t t-if="o.company_id.partner_id.street2">
+                                            <strong>, </strong>
+                                            <span
+                                                t-field="o.company_id.partner_id.street2"
+                                            />
+                                        </t>
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>Zip: </strong>
+                                        <span t-field="o.company_id.partner_id.zip" />
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-5">
+                                        <strong>City: </strong>
+                                        <t t-if="o.company_id.partner_id.city_id.name">
+                                            <span
+                                                t-field="o.company_id.partner_id.city_id.name"
+                                            />
+                                        </t>
+                                        <t t-else="">
+                                            <span
+                                                t-field="o.company_id.partner_id.city"
+                                            />
+                                        </t>
+                                    </div>
+                                    <div class="col-3">
+                                        <strong>State: </strong>
+                                        <span
+                                            t-field="o.company_id.partner_id.state_id.code"
+                                        />
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>Phone: </strong>
+                                        <span t-field="o.company_id.partner_id.phone" />
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-8">
+                                        <strong>VAT/CNPJ: </strong>
+                                        <span
+                                            t-field="o.company_id.partner_id.cnpj_cpf"
+                                        />
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>State Tax No.: </strong>
+                                        <span
+                                            t-field="o.company_id.partner_id.l10n_br_ie_code"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="partner_information"
+                                class="border border-dark border-top-0 p-2 py-3"
+                            >
+                                <div class="row mt-1">
+                                    <div class="col">
+                                        <strong>Partner: </strong>
+                                        <span t-field="o.partner_id.legal_name" />
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-8">
+                                        <strong>Address: </strong>
+                                        <span t-field="o.partner_id.street" />
+                                        <t t-if="o.partner_id.street2">
+                                            <strong>, </strong>
+                                            <span t-field="o.partner_id.street2" />
+                                        </t>
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>Zip: </strong>
+                                        <span t-field="o.partner_id.zip" />
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-8">
+                                        <strong>City: </strong>
+                                        <t t-if="o.partner_id.city_id.name">
+                                            <span t-field="o.partner_id.city_id.name" />
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.city" />
+                                        </t>
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>State: </strong>
+                                        <span t-field="o.partner_id.state_id.code" />
+                                    </div>
+                                </div>
+                                <!-- volume_information and fiscal_information -->
+                                <div class="row mt-4">
+                                    <div class="col-8">
+                                        <strong>Fiscal Document: </strong>
+                                        <span t-field="invoice.document_number" />
+                                    </div>
+                                    <div class="col-4" t-if="volume">
+                                        <strong>Quantity: </strong>
+                                    <span t-out="num_nfe40_qVol" /> / <span
+                                            t-field="volume.nfe40_qVol"
+                                            t-if="volume"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <strong>Number: </strong>
+                                        <span
+                                            t-field="volume.nfe40_nVol"
+                                            t-if="volume"
+                                        />
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>Gross Weight: </strong>
+                                        <span
+                                            t-field="volume.nfe40_pesoB"
+                                            t-if="volume"
+                                        />
+                                    </div>
+                                    <div class="col-4">
+                                        <strong>Net Weight: </strong>
+                                        <span
+                                            t-field="volume.nfe40_pesoL"
+                                            t-if="volume"
+                                        />
+                                    </div>
+                                </div>
+
+                                <!-- carrier_information -->
+                                <div class="row mt-4">
+                                    <div class="col">
+                                        <strong>
+                                            <b>Carrier: </b>
+                                        </strong>
+                                        <span t-field="o.carrier_id.partner_id.name" />
+                                    </div>
+                                </div>
+                                <!-- reshipment_information -->
+                                <t t-if="o.sale_id.reshipment_partner_id">
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <strong>
+                                                <b>Reshipment: </b>
+                                            </strong>
+                                            <span
+                                                t-field="o.sale_id.reshipment_partner_id.legal_name"
+                                            />
+                                        </div>
+                                    </div>
+                                </t>
+                                <!-- sale_order_information -->
+                                <div class="row mt-4">
+                                    <div class="col">
+                                        <strong>Sale Order: </strong>
+                                        <span t-field="o.sale_id.name" />
+                                    </div>
+                                </div>
+                                <!-- notes_information -->
+                                <div class="row mt-4">
+                                    <div class="col text-justify">
+                                        <strong>Notes: </strong>
+                                        <span t-field="o.note" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="company_footer"
+                                class="border border-dark border-top-0 p-2 py-3"
+                            >
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <p
+                                                class="mt-2"
+                                            >THE GOODS FOLLOW AT THE BUYER'S ACCOUNT
+                                                AND RISK <br
+                                                /> CHECK THE MERCHANDISE WHEN RECEIVING
+                                                BEFORE SIGNING THE EXPRESS ACKNOWLEDGMENT </p>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+                </t>
+        </t>
+    </template>
+    <template id="poppi_delivery_label_report">
+        <t t-foreach="docs" t-as="o">
+            <t
+                t-call="poppi_delivery_custom.report_poppi_delivery_label"
+                t-lang="o._get_report_lang()"
+            />
+        </t>
+    </template>
+</odoo>
