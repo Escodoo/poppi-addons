@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Copyright 2023 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="sale_order_form_view">
+        <field name="name">sale.order.form (in poppi_delivery_custom)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="l10n_br_delivery.l10n_br_delivery_sale_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='carrier_selection']" position="after">
+                <label for="reshipment_partner_id" invisible="not carrier_id" />
+                <div>
+                    <field
+                        name="reshipment_partner_id"
+                        class="oe_inline"
+                        invisible="not carrier_id"
+                        readonly="state != 'draft'"
+                    />
+                </div>
+                <label for="reshipment_payment" invisible="not carrier_id" />
+                <div>
+                    <field
+                        name="reshipment_payment"
+                        invisible="not carrier_id"
+                        required="reshipment_partner_id"
+                        readonly="state != 'draft'"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
