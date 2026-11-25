@@ -5,3 +5,10 @@ requests-pkcs12<1.23
 # Test imports of the transitive Brazilian localization dependencies.
 odoo-test-helper
 xmldiff
+# Temporary hotfix until OCA/l10n-brazil#5801 is merged: l10n_br_account's
+# post_init_hook sets chart_template="br_oca_generic" unconditionally, which
+# crashes mrp_account's own post_init_hook because that chart is missing
+# standard property accounts (e.g. cost_of_production) stock_account/
+# mrp_account expect every chart template to define. Pulls our patched
+# l10n_br_account, which falls back to the complete generic_coa instead.
+odoo-addon-l10n_br_account @ git+https://github.com/Escodoo/l10n-brazil.git@18.0-fix-l10n_br_account-chart-template-fallback#subdirectory=l10n_br_account
