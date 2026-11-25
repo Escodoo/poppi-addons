@@ -96,10 +96,7 @@
   </template>
 
   <!-- Print the purchase order report in landscape -->
-  <template
-        id="poppi_report_purchaseorder"
-        inherit_id="purchase.report_purchaseorder"
-    >
+  <template id="poppi_report_purchaseorder" inherit_id="purchase.report_purchaseorder">
     <xpath expr="//t[@t-foreach='docs']" position="before">
       <t t-set="data_report_landscape" t-value="True" />
     </xpath>
