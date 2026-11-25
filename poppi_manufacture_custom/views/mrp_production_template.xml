@@ -9,9 +9,7 @@
     </xpath>
     <xpath expr="//td[span[@t-field='raw_line.product_id']]" position="after">
       <td>
-        <span
-                    t-out="', '.join(raw_line.move_line_ids.location_id.mapped('name'))"
-                />
+        <span t-out="', '.join(raw_line.move_line_ids.location_id.mapped('name'))" />
       </td>
     </xpath>
   </template>
