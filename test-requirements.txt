@@ -5,3 +5,8 @@ requests-pkcs12<1.23
 # Test imports of the transitive Brazilian localization dependencies.
 odoo-test-helper
 xmldiff
+# Temporary hotfix until OCA/l10n-brazil#5801 is merged: l10n_br_account's
+# post_init_hook sets chart_template="br_oca_generic" unconditionally, but
+# that template is only registered when l10n_br_coa_generic is installed,
+# which crashes mrp_account's own post_init_hook when it isn't.
+odoo-addon-l10n_br_coa_generic>=18.0dev,<18.1dev
