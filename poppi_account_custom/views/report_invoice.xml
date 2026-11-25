@@ -4,60 +4,85 @@
         id="poppi_inherit_invoice_report"
         inherit_id="account.report_invoice_document"
     >
-        <xpath expr="//div[contains(@class, 'page')]" position="attributes">
-            <attribute name="style">font-size: 12px !important;</attribute>
-            <attribute name="t-foreach">o.financial_move_line_ids</attribute>
+        <xpath expr="//div[hasclass('page')]" position="before">
+            <t
+                t-set="installments"
+                t-value="o.line_ids.filtered(lambda line: line.display_type == 'payment_term').sorted('date_maturity')"
+            />
+        </xpath>
+        <xpath expr="//div[hasclass('page')]" position="attributes">
+            <attribute name="t-foreach">installments or [False]</attribute>
             <attribute name="t-as">current_installment</attribute>
             <attribute
-                name="t-att-data-installment-index"
-            >current_installment_index</attribute>
+                name="t-att-style"
+            >('font-size: 12px;' + (' page-break-before: always;' if current_installment_index else '')) if current_installment else None</attribute>
         </xpath>
 
-        <!-- Hide the "Taxes" column in the header -->
-        <xpath expr="//th[@name='th_taxes']" position="attributes">
-            <attribute name="t-attf-class">d-none</attribute>
+        <!-- Keep one external layout article per invoice for Odoo's PDF splitting. -->
+        <xpath expr="//t[@t-set='layout_document_title']" position="attributes">
+            <attribute name="t-if">not current_installment</attribute>
         </xpath>
-        <!-- Hide the "Taxes" column in the table body -->
-        <xpath expr="//td[span[@id='line_tax_ids']]" position="attributes">
-            <attribute name="t-attf-class">d-none</attribute>
-        </xpath>
-        <!-- Remove the loop that displays taxes after the Subtotal -->
-        <xpath expr="//t[@t-as='amount_by_group']" position="replace">
-        </xpath>
-        <!-- Add the Fiscal Document Number before the Invoice -->
-        <xpath expr="//div[@class='page']/h2" position="before">
-            <div t-if="o.document_number">
+        <xpath expr="//div[@id='informations']" position="before">
+            <div t-if="o.document_number" name="poppi_document_number">
                 <h3>
-                    <span>Document Number: </span>
+                    <span>Document Number:</span>
                     <span t-field="o.document_number" />
                 </h3>
             </div>
-        </xpath>
-
-        <xpath expr="//div[@class='page']/h2" position="replace">
-            <h2>
+            <h2 t-if="current_installment" name="poppi_installment_title">
                 <span>Installment </span>
-                <span t-esc="current_installment_index + 1" /> / <span
-                    t-esc="len(o.financial_move_line_ids)"
+                <span t-out="current_installment_index + 1" /> / <span
+                    t-out="len(installments)"
                 />
             </h2>
         </xpath>
-        <xpath expr="//div[@name='due_date']" position="replace">
-            <div class="col-auto col-3 mw-100 mb-2" name="due_date">
+        <xpath expr="//div[@id='informations']" position="attributes">
+            <attribute name="t-if" add="current_installment" separator=" or " />
+        </xpath>
+        <xpath expr="//div[@name='due_date']" position="before">
+            <div class="col" t-if="current_installment" name="poppi_due_date">
                 <strong>Due Date:</strong>
-                <p
-                    class="m-0"
-                    t-esc="current_installment.date_maturity"
-                    t-options="{'widget': 'date'}"
-                />
+                <div t-field="current_installment.date_maturity" />
             </div>
         </xpath>
-        <xpath expr="//div[@class='page']" position="inside">
-            <p style="page-break-after: always;" />
+        <xpath expr="//div[@name='due_date']" position="attributes">
+            <attribute
+                name="t-if"
+            >not current_installment and o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_taxes']" position="attributes">
+            <attribute name="t-if">not current_installment</attribute>
+        </xpath>
+        <xpath expr="//td[span[@id='line_tax_ids']]" position="attributes">
+            <attribute name="t-if">not current_installment</attribute>
+        </xpath>
+        <xpath
+            expr="//t[@t-call='account.document_tax_totals']/t[@t-set='tax_totals']"
+            position="attributes"
+        >
+            <attribute
+                name="t-value"
+            >dict(o.tax_totals, subtotals=[dict(subtotal, tax_groups=[]) for subtotal in o.tax_totals['subtotals']]) if current_installment else o.tax_totals</attribute>
+        </xpath>
+        <xpath
+            expr="//t[t[@t-call='account.document_tax_totals_company_currency_template']]"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >not current_installment and o.tax_totals.get('display_in_company_currency')</attribute>
+        </xpath>
+
+        <xpath expr="//t[@t-foreach='payment_term_details']" position="attributes">
+            <attribute name="t-if" add="not current_installment" separator=" and " />
         </xpath>
         <xpath expr="//table[@name='invoice_line_table']" position="after">
-            <t t-set="installment_number" t-value="0" />
-            <table class="table table-sm o_main_table" name="installments_table">
+            <table
+                t-if="current_installment"
+                class="table table-sm o_main_table"
+                name="installments_table"
+            >
                 <thead>
                     <tr>
                         <th>Installment</th>
@@ -66,37 +91,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <t t-foreach="o.financial_move_line_ids" t-as="installment">
-                        <t
-                            t-set="installment_number"
-                            t-value="installment_number + 1"
-                        />
-                        <tr>
-                            <td
-                                t-att-style="'font-weight: bold;' if installment == current_installment else ''"
-                            >
-                                <span t-esc="installment_number" /> / <span
-                                    t-esc="len(o.financial_move_line_ids)"
-                                />
-                            </td>
-                            <td
-                                t-att-style="'font-weight: bold;' if installment == current_installment else ''"
-                            >
-                                <span
-                                    t-field="installment.date_maturity"
-                                    t-options="{'widget': 'date'}"
-                                />
-                            </td>
-                           <td
-                                t-att-style="'font-weight: bold;' if installment == current_installment else ''"
-                            >
-                                <span
-                                    t-esc="abs(installment.amount_currency)"
-                                    t-options='{"widget": "monetary", "display_currency": o.currency_id}'
-                                />
-                            </td>
-                        </tr>
-                    </t>
+                    <tr
+                        t-foreach="installments"
+                        t-as="installment"
+                        t-att-style="'font-weight: bold;' if installment == current_installment else None"
+                    >
+                        <td>
+                            <span t-out="installment_index + 1" /> / <span
+                                t-out="len(installments)"
+                            />
+                        </td>
+                        <td><span t-field="installment.date_maturity" /></td>
+                        <td>
+                            <span
+                                t-out="abs(installment.amount_currency)"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                            />
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </xpath>

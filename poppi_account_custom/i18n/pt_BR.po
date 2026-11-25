@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-31 19:21+0000\n"
 "PO-Revision-Date: 2025-03-31 16:25-0300\n"
@@ -19,8 +19,8 @@ msgstr ""
 
 #. module: poppi_account_custom
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
-msgid "<span>Document Number: </span>"
-msgstr "<span>Nº Nota Fiscal: </span>"
+msgid "<span>Document Number:</span>"
+msgstr "<span>Nº Nota Fiscal:</span>"
 
 #. module: poppi_account_custom
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
@@ -46,12 +46,3 @@ msgstr "Data de Vencimento"
 #: model_terms:ir.ui.view,arch_db:poppi_account_custom.poppi_inherit_invoice_report
 msgid "Installment"
 msgstr "Parcela"
-
-#. module: account
-#: model_terms:ir.ui.view,arch_db:account.report_invoice_document
-msgid ""
-"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
-"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
-msgstr ""
-"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Valor Total</span>\n"
-"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Preço Total</span>"

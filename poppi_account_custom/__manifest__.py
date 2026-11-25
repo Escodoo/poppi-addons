@@ -5,10 +5,10 @@
     "name": "Poppi Account Custom",
     "summary": """
         Poppi Account Custom""",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Escodoo",
     "website": "https://github.com/Escodoo/poppi-addons",
-    "depends": ["account"],
+    "depends": ["l10n_br_account"],
     "data": ["views/report_invoice.xml"],
 }
